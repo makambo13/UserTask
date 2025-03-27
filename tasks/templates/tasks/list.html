@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Tasks</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            width: 100%;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            max-height: 80vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        h1 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        .empty-state {
+            margin: 20px 0;
+            padding: 20px;
+            background: #ffefc3;
+            border-radius: 10px;
+        }
+
+        .empty-state button {
+            background: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        input, textarea {
+            width: 60%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            margin: 0 auto;
+        }
+
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .scrollable-list {
+            max-height: 400px;
+            overflow-y: auto;
+            margin-top: 10px;
+            padding-right: 10px;
+        }
+
+        .task-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .task-list li {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .task-list h3 {
+            margin: 0;
+            font-size: 18px;
+            color: #333;
+            flex-grow: 1;
+        }
+
+        .task-list p {
+            margin: 5px 0 0 0;
+            color: #666;
+            flex-grow: 2;
+        }
+
+        /* Scrollbar styling */
+        .scrollable-list::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .scrollable-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+
+        .scrollable-list::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        .scrollable-list::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Custom Dropdown Style */
+        .custom-dropdown {
+            position: relative;
+            width: 70%;
+            margin: 0 auto;
+        }
+
+        .styled-select {
+            appearance: none; /* Remove default dropdown appearance */
+            width: 100%;
+            padding: 14px;
+            font-size: 16px;
+            color: #333;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .styled-select:focus {
+            border-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(72, 203, 89, 0.5);
+        }
+
+        .styled-select option {
+            padding: 10px;
+        }
+
+        /* Option colors */
+        .low-priority {
+            background-color: #b6f6b6;
+            color: #333;
+        }
+
+        .medium-priority {
+            background-color: #ffe600;
+            color: #333;
+        }
+
+        .high-priority {
+            background-color: #ff4f4f;
+            color: #fff;
+        }
+
+        /* Custom Dropdown Arrow */
+        .styled-select::-ms-expand {
+            display: none;
+        }
+
+        .styled-select::after {
+            content: '▼';
+            position: absolute;
+            top: 18px;
+            right: 10px;
+            color: #999;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>My Tasks</h1>
+        
+        {% if no_tasks_message %}
+            <div class="empty-state">
+                <p>{{ no_tasks_message }}</p>
+                <button onclick="document.getElementById('create-task-form').style.display='block'">
+                    Create First Task
+                </button>
+            </div>
+        {% endif %}
+
+        <div id="create-task-form" {% if no_tasks_message %}style="display:none"{% endif %}>
+            <form method="POST" action="{{ url_for('tasks.create_task') }}">
+                {{ form.hidden_tag() }}
+                <div>
+                    {{ form.title.label }}<br>
+                    {{ form.title(size=32) }}
+                </div>
+                <div>
+                    {{ form.description.label }}<br>
+                    {{ form.description(rows=4, cols=32) }}
+                </div>
+                <div>
+                    <label for="priority">Priority</label><br>
+                    <div class="custom-dropdown">
+                        <select name="priority" id="priority" class="styled-select">
+                            <option value="Low" class="low-priority">Low</option>
+                            <option value="Medium" class="medium-priority">Medium</option>
+                            <option value="High" class="high-priority">High</option>
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    {{ form.submit() }}
+                </div>
+            </form>
+        </div>
+
+        {% if tasks %}
+        <div class="scrollable-list">
+            <ul class="task-list">
+                {% for task in tasks %}
+                <li>
+                    <div class="task-text">
+                        <h3>{{ task.title }}</h3>
+                        <p>{{ task.description }}</p>
+                        <small>Created on: {{ task.created_at.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+                        <small>Priority: {{ task.priority }}</small>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
