@@ -61,3 +61,8 @@ This is a system design for the optimized approach in production for a real-worl
 
 
 
+Simple Design implemented 
+<img width="895" alt="Screenshot 2025-03-26 at 11 20 57 PM" src="https://github.com/user-attachments/assets/2e3f0bf6-a2e6-4659-afdf-45172f41b91e" />
+
+
+
