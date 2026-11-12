@@ -6,7 +6,7 @@ import os
 # Initialize the db
 db = SQLAlchemy()
 
-def create_app():
+def create_app(test_config=None):
     app = Flask(__name__)
 
     # Ensure instance folder exists
@@ -19,6 +19,10 @@ def create_app():
     app.config['SECRET_KEY'] = os.getenv('SECRET_KEY', 'dev-secret')
     app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(app.instance_path, 'tasks.db')}"
     app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
+    # Tests pass their own settings, such as an in-memory database
+    if test_config:
+        app.config.update(test_config)
 
     # Initialize Migrate with app and db
     migrate = Migrate(app, db)

@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 980 680" width="980" height="680">
+<defs><marker id="ah" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto"><path d="M1,1 L10,6 L1,11" fill="none" stroke="#1e1e1e" stroke-width="1.6" stroke-linecap="round"/></marker>
+<pattern id="hatch" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><line x1="0" y1="0" x2="0" y2="8" stroke="#00000014" stroke-width="3"/></pattern></defs>
+<rect width="980" height="680" fill="#ffffff"/>
+<text x="490.0" y="34" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="22" fill="#1e1e1e">UserTask: system design</text>
+<rect x="42" y="102" width="166" height="66" rx="6" fill="#a5d8ff"/><rect x="42" y="102" width="166" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M39.4,98.9 Q123.1,98.5 210.5,98.6 Q208.6,132.5 210.1,169.6 Q124.0,171.1 38.6,170.0 Q37.5,133.3 39.4,98.9" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M40.4,101.4 Q123.9,99.0 210.2,99.7 Q210.1,135.4 211.5,168.5 Q125.1,169.3 41.1,169.3 Q41.3,134.9 40.4,101.4" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="125.0" y="131.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">Browser</text>
+<text x="125.0" y="151.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">GET / , POST /tasks/create</text>
+<rect x="302" y="102" width="186" height="66" rx="6" fill="#ffec99"/><rect x="302" y="102" width="186" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M300.9,99.9 Q395.3,99.7 491.4,99.6 Q489.6,134.1 489.2,169.0 Q395.5,167.1 300.9,168.7 Q300.9,132.9 300.9,99.9" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M299.5,101.4 Q394.0,100.8 489.7,101.5 Q489.2,137.0 488.6,170.2 Q393.1,169.0 300.9,171.0 Q299.3,137.0 299.5,101.4" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="395.0" y="131.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">Routes</text>
+<text x="395.0" y="151.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">tasks/routes.py (blueprint)</text>
+<rect x="582" y="72" width="166" height="56" rx="6" fill="#ffd8a8"/><rect x="582" y="72" width="166" height="56" rx="6" fill="url(#hatch)"/>
+<path d="M578.5,69.9 Q663.3,70.8 748.9,68.8 Q747.1,99.6 748.6,130.9 Q663.9,131.6 578.8,129.2 Q579.9,101.0 578.5,69.9" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M579.3,69.7 Q663.4,70.4 749.5,71.2 Q750.9,99.1 751.5,128.9 Q663.2,128.7 579.0,129.1 Q578.6,99.7 579.3,69.7" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="665.0" y="96.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">TaskForm</text>
+<text x="665.0" y="116.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">Flask-WTF validation</text>
+<rect x="582" y="172" width="166" height="56" rx="6" fill="#ffd8a8"/><rect x="582" y="172" width="166" height="56" rx="6" fill="url(#hatch)"/>
+<path d="M579.7,168.7 Q663.3,166.7 750.4,168.6 Q748.1,197.2 748.6,229.1 Q663.2,227.4 578.9,229.5 Q580.8,199.6 579.7,168.7" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M578.9,169.2 Q664.1,167.7 749.5,169.6 Q747.6,199.7 748.8,231.1 Q664.2,231.8 581.6,229.9 Q578.9,197.6 578.9,169.2" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="665.0" y="196.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">Jinja templates</text>
+<text x="665.0" y="216.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">list / landing / error</text>
+<rect x="302" y="272" width="186" height="66" rx="6" fill="#b2f2bb"/><rect x="302" y="272" width="186" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M301.5,271.2 Q397.2,269.5 490.6,269.2 Q489.0,305.3 489.6,338.9 Q397.2,340.9 300.9,340.1 Q302.4,306.9 301.5,271.2" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M300.8,269.1 Q396.2,271.2 490.1,269.5 Q489.1,305.8 488.5,338.5 Q395.8,340.7 299.3,339.2 Q299.5,303.1 300.8,269.1" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="395.0" y="301.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">TaskService</text>
+<text x="395.0" y="321.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">tasks/services.py</text>
+<rect x="302" y="422" width="186" height="66" rx="6" fill="#d0bfff"/><rect x="302" y="422" width="186" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M301.3,419.5 Q397.4,420.0 490.5,421.1 Q490.2,453.7 488.8,489.6 Q396.5,490.2 300.7,489.0 Q300.8,455.2 301.3,419.5" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M298.7,418.9 Q395.5,418.6 491.6,418.5 Q492.7,452.8 490.3,489.9 Q395.6,488.2 300.5,490.4 Q300.8,455.5 298.7,418.9" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="395.0" y="451.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">Models</text>
+<text x="395.0" y="471.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">Task, User (SQLAlchemy)</text>
+<rect x="302" y="562" width="186" height="66" rx="6" fill="#e9ecef"/><rect x="302" y="562" width="186" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M298.5,559.1 Q395.2,561.6 490.0,560.8 Q490.4,596.8 489.4,630.1 Q395.3,630.7 301.1,628.6 Q301.3,592.4 298.5,559.1" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M298.9,560.0 Q395.5,558.9 491.2,560.9 Q489.0,596.6 490.3,630.9 Q394.7,629.8 298.9,628.9 Q300.0,596.0 298.9,560.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="395.0" y="591.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">SQLite</text>
+<text x="395.0" y="611.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">instance/tasks.db</text>
+<rect x="42" y="562" width="166" height="66" rx="6" fill="#e9ecef"/><rect x="42" y="562" width="166" height="66" rx="6" fill="url(#hatch)"/>
+<path d="M40.2,560.8 Q125.6,560.5 211.3,559.8 Q210.8,596.7 210.4,630.0 Q126.0,631.8 40.0,630.6 Q41.9,594.8 40.2,560.8" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M40.2,561.4 Q123.9,560.8 211.1,558.8 Q211.1,595.9 208.8,629.8 Q122.3,630.4 38.6,629.2 Q40.1,593.9 40.2,561.4" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="125.0" y="591.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">Flask-Migrate</text>
+<text x="125.0" y="611.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">migrations/ (Alembic)</text>
+<rect x="642" y="442" width="286" height="76" rx="6" fill="#ffc9c9"/><rect x="642" y="442" width="286" height="76" rx="6" fill="url(#hatch)"/>
+<path d="M641.2,438.9 Q785.3,437.4 930.5,439.1 Q930.1,479.7 930.7,521.6 Q785.0,521.5 639.7,519.7 Q640.0,479.4 641.2,438.9" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M639.3,441.5 Q785.7,440.1 928.8,441.3 Q930.0,482.6 929.1,521.2 Q785.3,520.9 638.7,519.3 Q640.8,480.0 639.3,441.5" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="785.0" y="476.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">GitHub Actions CI</text>
+<text x="785.0" y="496.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">pytest on Python 3.11, 3.12, 3.13</text>
+<rect x="642" y="572" width="286" height="56" rx="6" fill="#ffc9c9"/><rect x="642" y="572" width="286" height="56" rx="6" fill="url(#hatch)"/>
+<path d="M639.8,568.6 Q787.0,569.3 931.4,570.4 Q930.5,599.8 931.0,628.7 Q787.8,627.7 641.1,628.6 Q639.0,598.7 639.8,568.6" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<path d="M639.2,568.8 Q783.2,568.7 928.9,568.6 Q927.7,598.4 929.0,629.4 Q782.3,629.1 639.4,630.8 Q637.3,600.7 639.2,568.8" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round"/>
+<text x="785.0" y="596.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="18" fill="#1e1e1e">tests/</text>
+<text x="785.0" y="616.0" text-anchor="middle" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="12" fill="#495057">6 tests, in-memory SQLite</text>
+<path d="M210.0,135.0 Q256.9,136.8 300.0,135.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="265" y="131" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">request</text>
+<path d="M490.0,122.7 Q531.4,121.4 580.0,111.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="461" y="113" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">validate</text>
+<path d="M490.0,157.9 Q529.2,170.2 580.0,179.5" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="537" y="164" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">render</text>
+<path d="M395.0,170.0 Q396.2,222.3 395.0,270.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="404" y="216" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">create / list</text>
+<path d="M395.0,340.0 Q393.4,377.9 395.0,420.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="401" y="372" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">query</text>
+<path d="M395.0,490.0 Q393.3,519.0 395.0,560.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="401" y="513" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">read / write</text>
+<path d="M210.0,595.0 Q255.1,589.1 300.0,595.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="263" y="583" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">schema</text>
+<path d="M785.0,520.0 Q779.3,542.7 785.0,570.0" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-linecap="round" marker-end="url(#ah)"/>
+<text x="787" y="537" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">runs</text>
+<path d="M580,210 Q330,255 125,170" fill="none" stroke="#1e1e1e" stroke-width="1.5" stroke-dasharray="6 5" marker-end="url(#ah)"/>
+<text x="250" y="228" font-family="Virgil, 'Comic Sans MS', 'Segoe Print', cursive" font-size="13" fill="#1971c2">HTML</text>
+</svg>
