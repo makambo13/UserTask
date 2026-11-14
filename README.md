@@ -1,17 +1,39 @@
+<div align="center">
+
 # UserTask
 
-A small Flask app for a personal task list. Add a task with a title, a description and a priority, and the list shows the newest first.
+A small Flask app for a personal task list.
 
-<p align="center">
-  <img src="docs/landing.png" width="420">
-  <img src="docs/tasks.png" width="300">
-</p>
+![Python 3.11 to 3.13](https://img.shields.io/badge/Python-3.11%20to%203.13-3776AB?logo=python&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-2.2-000000?logo=flask&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
 
-## Run
+<br>
 
-Needs Python 3.11 to 3.13. I tested 3.13. Python 3.14 does not work yet because of the pinned SQLAlchemy.
+<img src="docs/landing.png" alt="Landing page with a Go to Your Task List button" width="420">
+&emsp;&emsp;
+<img src="docs/tasks.png" alt="Task list with a form for title, description and priority above the saved tasks" width="300">
 
-```sh
+<sub>The landing page and the task list, with sample tasks.</sub>
+
+</div>
+
+## About
+
+UserTask lets you add tasks with a title, a description and a priority, and lists them newest first. It runs on your machine with a local SQLite database. There is no account and no cloud service.
+
+## Features
+
+- Add a task with a title, an optional description, and a High, Medium or Low priority.
+- See all tasks newest first, with the date each was created.
+- Form validation and CSRF protection through Flask-WTF.
+- Database changes are tracked with Alembic migrations.
+
+## Getting started
+
+You need Python 3.11 to 3.13. Python 3.14 does not work yet because of the pinned SQLAlchemy.
+
+```bash
 git clone https://github.com/makambo13/UserTask.git
 cd UserTask
 python3 -m venv venv
@@ -20,96 +42,24 @@ pip install -r requirements.txt
 python run.py
 ```
 
-Open http://127.0.0.1:5000. The SQLite database is created in `instance/` the first time the app starts.
+Open http://127.0.0.1:5000. The SQLite database is created in `instance/` the first time the app starts. Set `SECRET_KEY` in your environment before running it anywhere other than your own machine.
+
+## Using it
+
+1. Open the landing page and click **Go to Your Task List**.
+2. Fill in a title, a description if you want one, and a priority.
+3. Click **Create Task**. The new task appears at the top of the list.
 
 ## How it works
 
-- `tasks/routes.py` handles requests
-- `tasks/services.py` does the database work
-- `tasks/models.py` defines `Task` and `User`
-- `tasks/forms.py` has the Flask-WTF form
+The browser talks to two routes: the landing page, and the `tasks` blueprint at `/tasks/`. The blueprint checks the form, hands the work to `TaskService`, and renders the result with Jinja templates. `TaskService` reads and writes the `Task` and `User` models through Flask-SQLAlchemy. If a database call fails, the service rolls back and the app shows an error page.
 
-Not built yet: login, and editing, completing or deleting a task. Every task belongs to user 1.
+<p align="center">
+  <img src="docs/architecture.png" alt="Diagram: the browser calls home() for the landing page and the tasks blueprint for the list and create routes. The blueprint validates TaskForm, renders Jinja templates, and calls TaskService, which uses the Task and User models to read and write SQLite through Flask-SQLAlchemy. Alembic migrations change the schema." width="620">
+</p>
 
-## System design
+There are two tables. `user` has a username, an email and a password hash. `tasks` has a title, a description, a priority, a status (default `pending`), a created date, and the `user_id` of its owner.
 
-### Architecture
+## Limits
 
-```mermaid
-%%{init: {"look": "handDrawn", "theme": "neutral"}}%%
-flowchart LR
-    B["Browser"] -->|"GET /"| H["home()<br/>landing_page.html"]
-    B -->|"GET /tasks/<br/>POST /tasks/create"| R
-
-    subgraph Flask["Flask app (create_app in app/__init__.py)"]
-        H
-        R["tasks blueprint<br/>tasks/routes.py"]
-        F["TaskForm<br/>tasks/forms.py<br/>validation + CSRF"]
-        S["TaskService<br/>tasks/services.py"]
-        M["Task, User models<br/>tasks/models.py"]
-        T["Jinja templates<br/>list.html, error.html"]
-        R --> F
-        R --> S
-        R --> T
-        S --> M
-    end
-
-    M -->|"Flask-SQLAlchemy"| DB[("SQLite<br/>instance/tasks.db")]
-    MG["Alembic migrations<br/>migrations/"] -.->|"schema changes"| DB
-```
-
-### Request flow
-
-```mermaid
-%%{init: {"look": "handDrawn", "theme": "neutral"}}%%
-sequenceDiagram
-    actor U as User
-    participant R as routes.py
-    participant F as TaskForm
-    participant S as TaskService
-    participant D as SQLite
-
-    U->>R: POST /tasks/create (title, description, priority)
-    R->>F: validate_on_submit()
-    alt form is valid
-        R->>S: create_task(user_id=1, ...)
-        S->>D: INSERT into tasks, commit
-        alt database error
-            S->>D: rollback
-            R-->>U: 500 error.html
-        else saved
-            R-->>U: redirect to /tasks/
-            U->>R: GET /tasks/
-            R->>S: get_user_tasks(user_id=1)
-            S->>D: SELECT tasks, newest first
-            R-->>U: list.html with tasks
-        end
-    else form is invalid
-        R-->>U: list.html with form errors
-    end
-```
-
-### Data model
-
-```mermaid
-%%{init: {"look": "handDrawn", "theme": "neutral"}}%%
-erDiagram
-    USER ||--o{ TASK : owns
-    USER {
-        int id PK
-        string username UK
-        string email UK
-        string password_hash
-    }
-    TASK {
-        int id PK
-        string title
-        text description
-        int user_id FK
-        datetime created_at
-        string status "default pending"
-        string priority "High, Medium, Low"
-    }
-```
-
-The `User` table exists, but login is not built yet, so every task is saved for user 1.
+Login is not built yet, so every task is saved for user 1. You can't edit, complete or delete a task yet. If something doesn't work, please open an issue on GitHub.
